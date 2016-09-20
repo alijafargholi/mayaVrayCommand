@@ -1,10 +1,8 @@
-![alt vray_logo_image](http://www.software3d.de/media/wysiwyg/Vray_3dsmax_3/V-Ray_h-logo_color.jpg)
+![alt vray_logo_image](http://www.software3d.de/media/wysiwyg/Vray_3dsmax_3/V-Ray_h-logo_color.jpg =200x)
 # Vray Commands in Maya :punch:
  
 
-<div style="color: red;font-weight: bold;">Note:</div> Following 
-examples are using PyMel. Please make sure you've imported the 
-pymel.core
+:mega: Note: Following examples are using *PyMel*. Please make sure you've imported the **pymel.core**
 
  ```python
     import pymel.core as pm
@@ -46,7 +44,7 @@ pymel.core
  
  > `Usage: vray getRenderElementsInScene [1|0] ` 
  
-##### Example## 
+##### Example
  ```python
     pm.vray("getRenderElementsInScene", 1)
   ```
