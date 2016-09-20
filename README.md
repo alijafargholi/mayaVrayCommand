@@ -117,138 +117,206 @@
 
 ### addAttributesFromGroup 
  > **Description:** Adds all the vray attributes from a group to the given node. Remove if executed twice (toggling on/off).
- 
+
  > `Usage: vray addAttributesFromGroup <NODE NAME - STRING> <GROUP INDEX - STRING> <SHOULD ADD - BOOLEAN>   Where <BOOLEAN> is one of: 0|1`
+ 
+##### Example
+ ```python
+    # Create a Cube and get its Shape node
+    foo = pm.polyCube()[0].getShape()
+    # Assign the Vray Round Edges attributes to the shape node
+    pm.vray("addAttributesFromGroup", foo, "vray_roundedges", 1)
+  ```
  ___
 
 ### listLoadedPlugins
- Lists all loaded plugins. Used for creating a VRayPluginNode.
+ > **Description:** Lists all loaded vray plugins from a given type.
+
+ > `Usage: vray listLoadedPlugins [texture|light|volume|brdf|material]`
+ 
+##### Example
+ ```python
+    pm.vray("listLoadedPlugins", "light")
+    # Result: [u'LightAmbientMax',
+     u'LightDirectMax',
+     u'LightSpotMax',
+     u'LightOmniMax',
+     u'SunLight',
+     u'LightDirectModo',
+     u'LightDirect',
+     u'LightAmbient',
+     u'LightOmni',
+     u'LightSphere',
+     u'LightSpot',
+     u'MayaLightDirect',
+     u'LightRectangle',
+     u'LightMesh',
+     u'LightIESMax',
+     u'LightIES',
+     u'LightDome'] #
+  ```
  ___
 
 ### addAttributesFromDll
- Adds all the attributes for a specific vray plugin. The plugin is read from a file and the name of the class is known.
+ > **Description:** Adds all the attributes for a specific vray plugin. The plugin is read from a file and the name of the class is known.
+ 
+ > `Usage: vray addAttributesFromDll <NODE NAME - STRING> [texture|brdf|material|light|volume] <PLUGIN NAME - STRING>`
  ___
 
 ### restoreMesh
- Restore the mesh from a proxy.
+ > **Description:** Restore the mesh from a proxy.
+
+ > `Usage: vray restoreMesh <NODE NAME - STRING`
  ___
 
 ### clearProxyPreviewCache
- Clears the proxy preview cache for all meshes or a particular one (name as parameter).
+ > **Description:** Clears the proxy preview cache for all meshes or a particular one (name as parameter).
  ___
 
 ### clearGeomCache
- Clears all cached geometry plugins.
+ > **Description:** Clears all cached geometry plugins.
  ___
 
 ### clearBitmapCache 
- Clears all cached bitmaps.
+ > **Description:** Clears all cached bitmaps.
  ___
 
 ### showVFB
- Shows the vfb window.
+ > **Description:** Shows the vfb window.
  ___
 
 ### addVFBToPanel  
- Adds the vfb to a panel.
+ > **Description:** Adds the vfb to a panel.
  ___
  
 ### removeVFBFromPanel
- Removes the vfb from panels.
+ > **Description:** Removes the vfb from panels.
  ___
 
 ### physicalCameraFOV
- Syncs FOV and other viewport related attributes of one or all vray physical cameras to maya cameras so they match.
+ > **Description:** Syncs FOV and other viewport related attributes of one or all vray physical cameras to maya cameras so they match.
  ___
 
 ### physicalCameraAutoShift
- Calculates a vertical shift for a physical camera so that the objects in the scene are straightened-up.
+ > **Description:** Calculates a vertical shift for a physical camera so that the objects in the scene are straightened-up.
  ___
 
 ### clearSwatchCache 
- Clears the swatch image cache. Generally this should be called when loading a new scene.
+ > **Description:** Clears the swatch image cache. Generally this should be called when loading a new scene.
  ___
 
 ### setSSSPreset 
- Sets the SSS preset.
+ > **Description:** Sets the SSS preset.
  ___
 
 ### setHair3Preset 
- Sets a node's hair3 preset to a new one by index.
+ > **Description:** Sets a node's hair3 preset to a new one by index.
  ___
 
 ### objectProperties 
- Gets properties about an object of a given type.
+ > **Description:** Gets properties about an object of a given type.
  ___
 
 ### getBlackBodyColor 
- Gets the color of a black body for a given temperature.
+ > **Description:** Gets the color of a black body for a given temperature.
  ___
 
 ### getConfValue 
- Load the value of a configuration option and return it.
+ > **Description:** Load the value of a configuration option and return it.
  ___
 
 ### setConfValue 
- Set the value of a configuration option.
+ > **Description:** Set the value of a configuration option.
  ___
 
 ### saveConfFile 
- Saves the data from the XML parser to the VRay configuration settings file.
+ > **Description:** Saves the data from the XML parser to the VRay configuration settings file.
  ___
 
 ### closeConfFile 
- Delete the XML parser without saving the data to the settings file.
+ > **Description:** Delete the XML parser without saving the data to the settings file.
  ___
 
 ### giMaps 
  This is used to save/reset the different GI maps.
+ > **Description:** This is used to save/reset the different GI maps.
+
+ > Usage: 
+
+* vray giMaps [save|info|load|mapinmemory] [irradiance|lightcache|globalphoton|causticsphoton]
+* vray giMaps reset [irradiance|lightcache|photon]
  ___
 
 ### resolveServers 
  Command to resolve a list of network names to IP addresses.
+ > **Description:** Command to resolve a list of network names to IP addresses.
+
+ > `Usage: vray resolveServers <SERVER NAME 1 - STRING> <SERVER NAME 2 - STRING> ... <SERVER NAME N - STRING>   Where N >= 1`
+ 
  ___
 
 ### isVRmatEditorEnabled 
- If the VRmat editor is enabled.
+ > **Description:** If the VRmat editor is enabled.
  ___
 
 ### getVRmatList 
- Gets a VRmat material list.
+ > **Description:** Gets a VRmat material list.
+
+ > `Usage: vray getVRmatList <MATERIAL NAME - STRING`
  ___
 
 ### vfbControl 
- Control command for the vfb.
+ > **Description:** Control command for the vfb.
  ___
 
 ### loadFromFile 
- Loads materials from vrscene file.
+ > **Description:** Loads materials from vrscene file.
  ___
 
 ### getMtlsList 
- Creates a list of plugins for all materials in the specified file.
+ > **Description:** Creates a list of plugins for all materials in the specified file.
  ___
 
 ### loadFromFileInit 
- Initializes vrscene file material importing.
+ > **Description:** Initializes importing from vrscene file.
+ > `Usage: vray loadFromFileInit <FILE NAME - STRING>`
  ___
 
 ### loadFromFileEnd
- Finalizes vrscene file material importing.
+ > **Description:** Finalizes vrscene file material importing.
  ___
 
 ### exportLightmeterToCSV
- Exports lightmeter data to a .csv file.
+ > **Description:** Exports lightmeter data to a .csv file.
+
+ > `Usage: vray exportLightmeterToCSV <NODE NAME - STRING> <FILE NAME - STRING>`
+
+ ```python
+    pm.vray("exportLightmeterToCSV",  "VRayLightMeter1", r"PATH\foo.csv")
+ ```
  ___
 
 ### getLightmeterMaxValue
- Returns the maximum value of a lightmeter (for Direct/GI/Total light).
+ > Description: Returns the maximum value of a lightmeter (for Direct/GI/Total light).
+
+ > `Usage: vray getLightmeterMaxValue <NODE NAME - STRING> [direct|gi|total]`
+
+##### Example
+  ```python
+    pm.vray("getLightmeterMaxValue", "VRayLightMeter1", "total")
+  ``` 
  ___
 
 ### version 
- Prints the version.
+ > **Description:** Prints the version.
+
+##### Example
+  ```python
+    pm.vray("version")
+    # Result: u'3.40.01' #
+  ```
  ___
 
 ### build
- Prints the build number.
+ > **Description:** Prints the build number.
  ___
