@@ -1,8 +1,8 @@
-![alt vray_logo_image](http://www.software3d.de/media/wysiwyg/Vray_3dsmax_3/V-Ray_h-logo_color.jpg =200x)
+![alt vray_logo_image](http://www.software3d.de/media/wysiwyg/Vray_3dsmax_3/V-Ray_h-logo_color.jpg)
 # Vray Commands in Maya :punch:
  
 
-:mega: Note: Following examples are using *PyMel*. Please make sure you've imported the **pymel.core**
+:mega: **Note:** Following examples are using *PyMel*. Please make sure you've imported the **pymel.core**
 
  ```python
     import pymel.core as pm
@@ -25,7 +25,9 @@
  
 ##### Example 
  ```python
+    # Create a Cube
     foo = pm.polyCube()
+    # Print out the optional attribute of the Cube 
     pm.vray("getOptionalAttrs", foo)
   ```
  ___
@@ -70,31 +72,53 @@
  ___
 
 ### addAttr 
- Dynamically adds a vray attribute to a node.
+ > **Description:** Dynamically adds a vray attribute to a node.
+
+ > `Usage: vray addAttr <NODE NAME - STRING> <ATTRIBUTE NAME - STRING>`
+
+##### Example
+ ```python
+    # Create a Cube
+    foo = pm.polyCube()
+    # Assign the vray object ID to the cube's transform node. 
+    pm.vray("addAttr", foo[0].name(), "vrayObjectID")
+  ```
  ___
 
 ### updateGLSLAttr 
- Updates GLSL attributes of a VRayTexGLSL node.
+ > **Description:** Updates GLSL attributes of a VRayTexGLSL node.
+ 
+ > `Usage: vray updateGLSLAttr <NODE NAME - STRING>`
  ___
 
 ### updateOSLAttr 
- Updates OSL attributes of a VRayTexOSL node.
+ > **Description:** Updates OSL attributes of a VRayTexOSL/VRayMtlOSL node.
+ 
+ > `Usage: vray updateOSLAttr <NODE NAME - STRING>`
  ___
 
 ### saveCompiledGLSLShader
- Saves a compiled GLSL shader.
+ > **Description:** Saves a compiled GLSL shader.
+ 
+ > `Usage: vray saveCompiledGLSLShader <IN FILE NAME - STRING> <OUT FILE NAME - STRING>`
  ___
 
 ### saveCompiledOSLShader 
- Saves a compiled OSL shader.
+ > **Description:** Saves a compiled OSL shader.
+
+ > `Usage: vray saveCompiledOSLShader <IN FILE NAME - STRING> <OUT FILE NAME - STRING>`
  ___
 
 ### createAEMenu 
- Creates the VRay AE menu for a given node.
+ > **Description:** Creates the VRay AE menu for a given node.
+
+ > `Usage: vray createAEMenu <NODE NAME - STRING>Creates the VRay AE menu for a given node.`
  ___
 
 ### addAttributesFromGroup 
- Adds all the vray attributes from a group to the given node. Remove if executed twice (toggling on/off).
+ > **Description:** Adds all the vray attributes from a group to the given node. Remove if executed twice (toggling on/off).
+ 
+ > `Usage: vray addAttributesFromGroup <NODE NAME - STRING> <GROUP INDEX - STRING> <SHOULD ADD - BOOLEAN>   Where <BOOLEAN> is one of: 0|1`
  ___
 
 ### listLoadedPlugins
